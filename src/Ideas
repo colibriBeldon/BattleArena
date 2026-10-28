@@ -1,0 +1,29 @@
+Karaktärer ideer:
+## Karaktärer
+
+Spelet har tre boxare. Alla kan använda en vanlig attack och en specialförmåga. Varje boxare har en egen stil.
+
+### Ali – snabbhet
+
+- **HP:** 100
+- **Vanlig attack – Snabb jabb:** gör slumpmässigt 8–12 skada.
+- **Specialförmåga – Fotarbete:** nästa attack mot Ali har 50 % chans att missa.
+
+Ali gör lagom mycket skada, men hans snabbhet gör honom svår att träffa.
+
+### Tyson – styrka
+
+- **HP:** 100
+- **Vanlig attack – Tung höger:** gör slumpmässigt 12–18 skada.
+- **Specialförmåga – Knockoutslag:** har 50 % chans att göra 25 skada. Om slaget missar gör det 0 skada.
+
+Tyson är den starkaste boxaren, men hans specialförmåga är en chansning.
+
+### Mayweather – försvar
+
+- **HP:** 110
+- **Vanlig attack – Kontring:** gör slumpmässigt 6–10 skada.
+- **Specialförmåga – Gard:** halverar skadan från nästa attack som träffar honom.
+
+Mayweather gör mindre skada, men kan skydda sig och hålla sig kvar längre i matchen.
+
