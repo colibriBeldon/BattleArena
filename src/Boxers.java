@@ -3,9 +3,14 @@ abstract public class Boxers implements Fightable {
     private String name;
 
 
-    public Boxers(int hp, String name) {
-        this.hp = hp;
+    public Boxers( String name) {
+        this.hp = 100;
         this.name = name;
+    }
+
+    @Override
+    public void takeDamage(int damage){
+        setHp(getHp()-damage);
     }
 
     public int getHp() {
@@ -14,6 +19,10 @@ abstract public class Boxers implements Fightable {
 
     public void setHp(int hp) {
         this.hp = hp;
+        // Kan inte bli lägre än 0
+        if (hp<0){
+            this.hp=0;
+        }
     }
 
     public String getName() {
