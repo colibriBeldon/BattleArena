@@ -1,9 +1,7 @@
 import java.util.Random;
 
-
-public class MikeTyson {
+public class MikeTyson extends Boxers{
     private boolean powerPunchReady = false;
-    public class MikeTyson extends Boxers {
 
         public MikeTyson(String name) {
             super(name);
@@ -30,4 +28,4 @@ public class MikeTyson {
             System.out.println(getName() + " laddar sitt kraftslag!");
         }
     }
-}
+
