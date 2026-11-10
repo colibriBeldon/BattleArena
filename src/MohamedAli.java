@@ -1,9 +1,13 @@
 import java.util.Random;
 public class MohamedAli extends Boxers{
     private boolean noDamage = false;
+
+    private static final int MOHAMMED_ALI_MIN_DAMAGE = 8;
+    private static final int MOHAMMED_ALI_MAX_DAMAGE = 12;
+    private static final int START_HP = 110;
     public MohamedAli( String name) {
         super(name);
-        this.setHp(110);
+        this.setHp(START_HP);
     }
     // en funktion för att dra av damage
 
@@ -23,7 +27,7 @@ public class MohamedAli extends Boxers{
     @Override
     public int attack (){
         Random r = new Random();
-        int damage = r.nextInt(8,13);// slumpmässig mellan 8-12
+        int damage = r.nextInt(MOHAMMED_ALI_MIN_DAMAGE,MOHAMMED_ALI_MAX_DAMAGE);// slumpmässig mellan 8-12
         return damage;
     }
     @Override
