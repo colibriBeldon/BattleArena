@@ -13,7 +13,6 @@ public class MohamedAli extends Boxers{
 
     @Override // Polymorphism
     public void takeDamage(int damage){
-        Random r = new Random();
         if (noDamage){
             noDamage= false;
             System.out.println(this.getName() +  " tog ingen skada");
