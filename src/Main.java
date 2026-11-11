@@ -1,49 +1,61 @@
-import java.util.ArrayList;
 import java.util.Random;
-
 class Main {
-    static void main(String[] args) {
+static void main(String[] args) {
+    MohamedAli ali = new MohamedAli("Muhamed Ali");
+    MikeTyson mike = new MikeTyson("Mike Tyson");
+    FloydMayweather floyd = new FloydMayweather("Floyd Mayweather");
 
-        ArrayList<Boxers> players= new ArrayList<>();
+    while (ali.getHp() > 0 && mike.getHp() > 0) {
 
-        players.add(new MohamedAli("Gabbe"));
-        players.add( new MikeTyson("Sem"));
-        boolean gameOver = false;
-        while (!gameOver){
+        performAction(ali, mike, Action.ATTACK);
 
-            int givenDamage=0;
-            for (Boxers player: players){
-                player.takeDamage(givenDamage);
-                int playerChoice = randomPlayerChoice();
-                givenDamage = playerAction(player, playerChoice);
+    if (mike.getHp() == 0) {
+        break;
+    }
 
-                if (player.getHp()==0){
-                    gameOver=true;
-                    System.out.println(player.getName() + " Förlorade");
-                }
-            }
+        Action computerAction = chooseRandomAction();
+        performAction(mike, ali, computerAction);
+}
 
-
+        if (ali.getHp() == 0) {
+            System.out.println(mike.getName() + " Vann! ");
+        } else {
+        System.out.println(ali.getName() + " Vann! ");
         }
 
+    }
+    static void printStatus(Boxers first, Boxers second) {
+        System.out.println(first.getName() + " HP : " + first.getHp());
+        System.out.println(second.getName() + " HP : " + second.getHp());
 
     }
+static void performAttack(Boxers attacker, Boxers defender) {
+    int damage = attacker.attack();
+    defender.takeDamage(damage);
 
-    static int randomPlayerChoice(){
-        Random r = new Random();
-        return r.nextInt(1, 3);
+    System.out.println(
+            attacker.getName() + " attackerade " +
+                    defender.getName() + " och gjorde " +
+                    damage + " skada."
+    );
+
+    printStatus(attacker, defender);
+}
+static void performAction(Boxers actor, Boxers target, Action action) {
+    if (action == Action.ATTACK) {
+        performAttack(actor, target);
+    } else if (action == Action.SPECIAL) {
+        actor.specialAbility();
     }
+    }
+    static Action chooseRandomAction() {
+        Random random = new Random();
 
-    static int playerAction(Boxers player, int choice){
-        int damage =0;
-        switch (choice){
-            case 1:
-                damage=player.attack();
-                System.out.println(player.getName() + " attackerade");
-            case 2:
-                player.specialAbility();
-                System.out.println(player.getName() + " valde speciall abiltiy");
+        if (random.nextBoolean()) {
+            return Action.ATTACK;
+        }else{
+            return Action.SPECIAL;
+
         }
-        return damage;
-    }
+}
 }
