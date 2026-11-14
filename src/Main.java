@@ -2,33 +2,34 @@ import java.util.Random;
 import java.util.Scanner;
 
 class Main {
+    static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+
     System.out.println("Skriv ditt namn:");
     String playerName = scanner.nextLine();
 
-    static void main(String[] args) {
-        MohamedAli ali = new MohamedAli(playerName);
-    MikeTyson mike = new MikeTyson("Mike Tyson");
-    FloydMayweather floyd = new FloydMayweather("Floyd Mayweather");
+
+        Boxers player = choosePlayerCharacter(scanner, playerName);
+        Boxers computer = chooseComputerCharacter();
 
 
-    while (ali.getHp() > 0 && mike.getHp() > 0) {
+    while (player.getHp() > 0 && computer.getHp() > 0) {
 
         Action playerAction = choosePlayerAction(scanner);
-        performAction(ali, mike, playerAction);
+        performAction(player, computer, playerAction);
 
-    if (mike.getHp() == 0) {
+    if (computer.getHp() == 0) {
         break;
     }
 
         Action computerAction = chooseRandomAction();
-        performAction(mike, ali, computerAction);
+        performAction(computer, player, computerAction);
 }
 
-        if (ali.getHp() == 0) {
-            System.out.println(mike.getName() + " Vann! ");
+        if (player.getHp() == 0) {
+            System.out.println(computer.getName() + " Vann! ");
         } else {
-        System.out.println(ali.getName() + " Vann! ");
+        System.out.println(player.getName() + " Vann! ");
         }
 
     }
@@ -95,4 +96,17 @@ static void performAction(Boxers actor, Boxers target, Action action) {
             return new FloydMayweather(playerName);
         }
     }
+    static Boxers chooseComputerCharacter() {
+        Random random = new Random();
+        int choice = random.nextInt(3);
+
+        if (choice == 0) {
+            return new MohamedAli("Datorn Ali");
+        } else if (choice == 1) {
+            return new MikeTyson("Datorn Mike");
+        } else {
+            return new FloydMayweather("Datorn Floyd");
+        }
+    }
 }
+// ballte service där attaeran genomförs så det inte blir så mycker på main
