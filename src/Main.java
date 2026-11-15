@@ -16,14 +16,14 @@ class Main {
     while (player.getHp() > 0 && computer.getHp() > 0) {
 
         Action playerAction = choosePlayerAction(scanner);
-        performAction(player, computer, playerAction);
+        BattleService.performAction(player, computer, playerAction);
 
     if (computer.getHp() == 0) {
         break;
     }
 
         Action computerAction = chooseRandomAction();
-        performAction(computer, player, computerAction);
+        BattleService.performAction(computer, player, computerAction);
 }
 
         if (player.getHp() == 0) {
@@ -32,30 +32,6 @@ class Main {
         System.out.println(player.getName() + " Vann! ");
         }
 
-    }
-    static void printStatus(Boxers first, Boxers second) {
-        System.out.println(first.getName() + " HP : " + first.getHp());
-        System.out.println(second.getName() + " HP : " + second.getHp());
-
-    }
-static void performAttack(Boxers attacker, Boxers defender) {
-    int damage = attacker.attack();
-    defender.takeDamage(damage);
-
-    System.out.println(
-            attacker.getName() + " attackerade " +
-                    defender.getName() + " och gjorde " +
-                    damage + " skada."
-    );
-
-    printStatus(attacker, defender);
-}
-static void performAction(Boxers actor, Boxers target, Action action) {
-    if (action == Action.ATTACK) {
-        performAttack(actor, target);
-    } else if (action == Action.SPECIAL) {
-        actor.specialAbility();
-    }
     }
     static Action chooseRandomAction() {
         Random random = new Random();
