@@ -1,6 +1,9 @@
 public class InputValidation {
 
     public boolean isAlpha(String name) {
+        if (name.isEmpty()){
+            return false;
+        }
         char[] chars = name.toCharArray();
         for (char c : chars) {
             if (!Character.isLetter(c)) {
