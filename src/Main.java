@@ -44,17 +44,22 @@ class Main {
         }
 }
     static Action choosePlayerAction(Scanner scanner) {
-        System.out.println("Välj handling:");
-        System.out.println("1. Attack");
-        System.out.println("2. Specialförmåga");
+        while (true) {
+            System.out.println("Välj handling:");
+            System.out.println("1. Attack");
+            System.out.println("2. Specialförmåga");
 
-        String choice = scanner.nextLine();
+            String choice = scanner.nextLine();
 
-        if (choice.equals("1")) {
-            return Action.ATTACK;
-        } else {
-            return Action.SPECIAL;
+            if (choice.equals("1")) {
+                return Action.ATTACK;
+            } else if (choice.equals("2")) {
+                return Action.SPECIAL;
+            } else {
+                System.out.println("Ogiltigt val. Skriv 1 eller 2.");
+            }
         }
+
     }
     static Boxers choosePlayerCharacter(Scanner scanner, String playerName) {
         System.out.println("Välj din karaktär:");
