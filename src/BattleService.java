@@ -18,13 +18,24 @@ public class BattleService {
                 Boxers defender
         ) {
             int damage = attacker.attack();
+            int oldHp = defender.getHp();
+
             defender.takeDamage(damage);
 
-            System.out.println(
-                    attacker.getName() + " attackerade " +
-                            defender.getName() + " och gjorde " +
-                            damage + " skada."
-            );
+            int actualDamage = oldHp - defender.getHp();
+
+            if (actualDamage == 0 && damage > 0) {
+                System.out.println(
+                        attacker.getName() + " attackerade " +
+                                defender.getName() + ", men attacken undveks."
+                );
+            } else {
+                System.out.println(
+                        attacker.getName() + " attackerade " +
+                                defender.getName() + " och gjorde " +
+                                actualDamage + " skada."
+                );
+            }
 
             printStatus(attacker, defender);
         }
