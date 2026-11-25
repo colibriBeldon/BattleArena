@@ -9,8 +9,7 @@ public class MikeTyson extends Boxers{
 
 
     public MikeTyson(String name) {
-            super(name, MIN_DAMAGE,MAX_DAMAGE);
-            setHp(START_HP);
+            super(name, MIN_DAMAGE,MAX_DAMAGE, START_HP);
         }
 
     @Override

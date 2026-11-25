@@ -6,8 +6,8 @@ public class MohamedAli extends Boxers{
     private static final int MAX_DAMAGE = 12;
     private static final int START_HP = 110;
     public MohamedAli( String name) {
-        super(name,MIN_DAMAGE,MAX_DAMAGE);
-        this.setHp(START_HP);
+        super(name,MIN_DAMAGE,MAX_DAMAGE,START_HP);
+
     }
     // en funktion för att dra av damage
 

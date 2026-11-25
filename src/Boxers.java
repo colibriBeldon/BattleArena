@@ -4,16 +4,17 @@ abstract public class Boxers implements Fightable {
     private int hp;
     private String name;
     private Action action;
-    private static final int START_HP = 100;
+    private int startHp = 100;
     private final int MIN_DAMAGE;
     private final int MAX_DAMAGE;
 
-    public Boxers( String name, int minDamage, int maxDamage) {
-        this.hp = START_HP;
+    public Boxers( String name, int minDamage, int maxDamage, int startHp) {
+        this.hp = this.startHp;
         this.name = name;
         this.action = Action.ATTACK;
         this.MIN_DAMAGE = minDamage;
         this.MAX_DAMAGE = maxDamage;
+        this.startHp = startHp;
     }
 
     @Override
@@ -32,8 +33,8 @@ abstract public class Boxers implements Fightable {
         double hpMultiplication = r.nextDouble(1.4, 2.5);
         int newHp = (int)Math.round(getHp()* hpMultiplication); // type casting
 
-        if (newHp>START_HP){
-            newHp=START_HP;
+        if (newHp> startHp){
+            newHp= startHp;
         }
         this.setHp(newHp);
     }

@@ -8,8 +8,7 @@ public class FloydMayweather extends Boxers{
     private static final int START_HP = 100;
 
 public FloydMayweather(String name) {
-    super(name,MIN_DAMAGE,MAX_DAMAGE);
-    setHp(START_HP);
+    super(name,MIN_DAMAGE,MAX_DAMAGE, START_HP);
 }
 
 
