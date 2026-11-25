@@ -5,16 +5,25 @@ abstract public class Boxers implements Fightable {
     private String name;
     private Action action;
     private static final int START_HP = 100;
+    private final int MIN_DAMAGE;
+    private final int MAX_DAMAGE;
 
-    public Boxers( String name) {
+    public Boxers( String name, int minDamage, int maxDamage) {
         this.hp = START_HP;
         this.name = name;
         this.action = Action.ATTACK;
+        this.MIN_DAMAGE = minDamage;
+        this.MAX_DAMAGE = maxDamage;
     }
 
     @Override
     public void takeDamage(int damage){
         setHp(getHp()-damage);
+    }
+
+    public int attack() {
+        Random random = new Random();
+        return random.nextInt(MIN_DAMAGE, MAX_DAMAGE);
     }
 
     public void recover(){
