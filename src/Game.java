@@ -1,16 +1,19 @@
+import java.util.Scanner;
+
 public class Game {
     private final Boxers player;
     private final Boxers computer;
+    private final Scanner scanner;
 
-    public Game(Boxers player, Boxers computer) {
+    public Game(Boxers player, Boxers computer, Scanner scanner) {
         this.player = player;
         this.computer = computer;
-
+        this.scanner = scanner;
     }
     public void start() {
         while (player.getHp() > 0 && computer.getHp() > 0) {
 
-            Action playerAction = ActionSelection.choosePlayerAction(new java.util.Scanner(System.in));
+            Action playerAction =  ActionSelection.choosePlayerAction(scanner);
             BattleService.performAction(player, computer, playerAction);
 
             if (computer.getHp() == 0) {

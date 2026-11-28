@@ -26,7 +26,7 @@ class Main {
         Boxers computer = CharacterSelection.chooseComputerCharacter();
 
 
-        Game game = new Game(player, computer);
+        Game game = new Game(player, computer,scanner);
         game.start();
 
         }
